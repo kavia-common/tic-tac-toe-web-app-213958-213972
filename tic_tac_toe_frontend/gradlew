@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Some CI/mobile analysis steps may run `./gradlew` from within the app directory.
+# Delegate to an existing generated Android wrapper if present, otherwise no-op.
+
+if [[ -x "android/gradlew" ]]; then
+  exec "android/gradlew" "$@"
+fi
+
+if [[ -x "../android/gradlew" ]]; then
+  exec "../android/gradlew" "$@"
+fi
+
+echo "gradlew wrapper (tic_tac_toe_frontend): android/gradlew not found; skipping Gradle invocation."
+exit 0

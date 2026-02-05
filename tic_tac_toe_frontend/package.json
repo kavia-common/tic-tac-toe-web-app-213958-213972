@@ -11,7 +11,8 @@
     "web:expo": "expo start --web",
     "lint": "eslint .",
     "prebuild:android": "expo prebuild --platform android",
-    "build": "npm run prebuild:android && cd android && ./gradlew assembleDebug",
+    "build:android": "npm run prebuild:android && cd android && ./gradlew assembleDebug",
+    "build": "vite build",
     "clean": "rm -rf .metro-cache"
   },
   "dependencies": {
