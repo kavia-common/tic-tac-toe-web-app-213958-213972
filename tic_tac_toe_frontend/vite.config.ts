@@ -28,6 +28,6 @@ export default defineConfig({
     /**
      * Allow the Kavia preview hostnames.
      */
-    allowedHosts: ['*.kavia.ai'],
+    allowedHosts: true,
   },
 });
